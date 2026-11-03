@@ -1,8 +1,23 @@
+import { Route, Routes } from 'react-router-dom'
+import Layout from './components/layout/Layout'
+import Home from './pages/Home'
+import Destinations from './pages/Destinations'
+import Offers from './pages/Offers'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import NotFound from './pages/NotFound'
+
 export default function App() {
   return (
-    <main className="container-page section text-center">
-      <h1 className="text-4xl font-bold">Horizon Voyages</h1>
-      <p className="mt-4 text-muted">Votre prochaine aventure commence ici.</p>
-    </main>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/destinations" element={<Destinations />} />
+        <Route path="/offres" element={<Offers />} />
+        <Route path="/a-propos" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   )
 }
